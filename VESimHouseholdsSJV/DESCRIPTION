@@ -1,0 +1,32 @@
+Package: VESimHouseholdsSJV
+Type: Package
+Title: Create Simulated Households with Attributes for VERSPM for San Joaquin Valley
+Version: 3.1.2
+Date: 2025-09-17
+Author: Brian Gregor [aut, cre],
+Maintainer: Nick Fisher <nicholas.fisher@rsginc.com>
+Copyright: ODOT
+Description: This package contains several modules which create synthetic
+    households with attributes of persons by age group, income, workers,
+    and life cycle. It also prepares a data frame of model estimation data from
+    Census PUMS data that is used to estimate models in this package and the
+    VELandUse package. This package is updated to reflect the specific PUMS for the SKATS MPO in Oregon and should work in the current framework for VisionEval.
+License: file LICENSE
+LazyData: TRUE
+LazyDataCompression: bzip2
+Depends: R (>= 4.0.0)
+Imports:
+    visioneval
+Suggests:
+    knitr,
+    rmarkdown
+VignetteBuilder: knitr
+Encoding: UTF-8
+Roxygen: list(load='source')
+RoxygenNote: 7.3.3
+Collate: 
+    'CreateEstimationDatasets.R'
+    'CreateHouseholds.R'
+    'PredictWorkers.R'
+    'PredictIncome.R'
+    'AssignLifeCycle.R'

@@ -2,7 +2,7 @@ Package: VEPowertrainsAndFuelsSJV
 Type: Package
 Title: Updated Powertrain and Fuels package for San Joaquin Valley
 Version: 1.0.0
-Date: 2025-05-16
+Date: 2025-09-17
 Author: Jon Slason [aut, cre],
 Maintainer: Jon Slason <jonathan.slason@rsginc.com.com>
 Copyright: AASHTO, ODOT
