@@ -14,7 +14,7 @@ NULL
 ### Model Parameter Estimation
 #Household income models are estimated for *regular* households and for *group quarters* households.
 #
-#The household income models are estimated using Census public use microsample (PUMS) data that are compiled into a R dataset (HhData_df) by the 'CreateEstimationDatasets.R' script when the VESimHouseholdsMetro package is built. The data that are supplied with the VESimHouseholdsMetro package downloaded from the VisionEval repository may be used, but it is preferrable to use data for the region being modeled. How this is done is explained in the documentation for the *CreateEstimationDatasets.R* script.
+#The household income models are estimated using Census public use microsample (PUMS) data that are compiled into a R dataset (HhData_df) by the 'CreateEstimationDatasets.R' script when the VESimHouseholdsSJV package is built. The data that are supplied with the VESimHouseholdsSJV package downloaded from the VisionEval repository may be used, but it is preferrable to use data for the region being modeled. How this is done is explained in the documentation for the *CreateEstimationDatasets.R* script.
 #
 #The household income models are linear regression models in which the dependent variable is a power transformation of income. Power transformation is needed in order to normalize the income data distribution which has a long right-hand tail. The power transform is found which minimizes the skewness of the income distribution. The power transform for *regular* households is:
 #
@@ -538,7 +538,7 @@ PredictIncome <- function(L) {
   Data_df$AvePerCapInc <- L$Year$Azone$HHIncomePC[HhToAzIdx_Hh]
   #Predict income for households by Azone using Azone household income target
   HhIncome_Hh <- numeric(NumHH)
-  HHIncModel_ls <- loadPackageDataset("HHIncModel_ls","VESimHouseholdsMetro")
+  HHIncModel_ls <- loadPackageDataset("HHIncModel_ls","VESimHouseholdsSJV")
   for (az in Az) {
     IsAz <- Data_df$Azone == az
     #Calculate average household income target to match
@@ -567,7 +567,7 @@ PredictIncome <- function(L) {
     Data_df$AvePerCapInc <- L$Year$Azone$GQIncomePC[GqToAzIdx_Gq]
     #Predict income for group quarters by Azone using Azone household income target
     GqIncome_Gq <- numeric(NumGQ)
-    GQIncModel_ls <- loadPackageDataset("GQIncModel_ls","VESimHouseholdsMetro")
+    GQIncModel_ls <- loadPackageDataset("GQIncModel_ls","VESimHouseholdsSJV")
     for (az in Az) {
       IsAz <- Data_df$Azone == az
       if (sum(IsAz) > 0) {

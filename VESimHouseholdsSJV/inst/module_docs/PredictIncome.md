@@ -6,7 +6,7 @@ This module predicts the income for each simulated household given the number of
 ## Model Parameter Estimation
 Household income models are estimated for *regular* households and for *group quarters* households.
 
-The household income models are estimated using Census public use microsample (PUMS) data that are compiled into a R dataset (HhData_df) by the 'CreateEstimationDatasets.R' script when the VESimHouseholdsMetro package is built. The data that are supplied with the VESimHouseholdsMetro package downloaded from the VisionEval repository may be used, but it is preferrable to use data for the region being modeled. How this is done is explained in the documentation for the *CreateEstimationDatasets.R* script.
+The household income models are estimated using Census public use microsample (PUMS) data that are compiled into a R dataset (HhData_df) by the 'CreateEstimationDatasets.R' script when the VESimHouseholdsSJV package is built. The data that are supplied with the VESimHouseholdsSJV package downloaded from the VisionEval repository may be used, but it is preferrable to use data for the region being modeled. How this is done is explained in the documentation for the *CreateEstimationDatasets.R* script.
 
 The household income models are linear regression models in which the dependent variable is a power transformation of income. Power transformation is needed in order to normalize the income data distribution which has a long right-hand tail. The power transform is found which minimizes the skewness of the income distribution. The power transform for *regular* households is:
 
@@ -44,7 +44,7 @@ PowPerCapInc:Wkr20to29 -0.250511   0.046841  -5.348 9.01e-08 ***
 PowPerCapInc:Wkr30to54  0.155750   0.003206  48.574  < 2e-16 ***
 PowPerCapInc:Age65Plus -0.218749   0.034914  -6.265 3.81e-10 ***
 ---
-Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
+Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
 
 Residual standard error: 7.136 on 16777 degrees of freedom
 Multiple R-squared:  0.2155,	Adjusted R-squared:  0.215 
@@ -70,7 +70,7 @@ PowPerCapInc  -0.7869     0.2227  -3.533 0.000445 ***
 Wkr20to29      3.7481     0.4380   8.558  < 2e-16 ***
 Wkr55to64      0.9514     1.2327   0.772 0.440576    
 ---
-Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
+Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
 
 Residual standard error: 4.377 on 538 degrees of freedom
 Multiple R-squared:  0.1382,	Adjusted R-squared:  0.1334 
@@ -84,7 +84,7 @@ An additional step must be carried out in order to predict household income. Bec
 |          | Dollars|
 |:---------|-------:|
 |Observed  |  128865|
-|Estimated |  129944|
+|Estimated |  128892|
 
 The following figure compares the distributions of the observed and predicted incomes of *regular* households.
 
@@ -96,7 +96,7 @@ Following is the comparison of mean values for the observed *group quarters* hou
 |          | Dollars|
 |:---------|-------:|
 |Observed  |   13364|
-|Estimated |   13519|
+|Estimated |   11769|
 
 The following figure compares the distributions of the observed and predicted incomes of *groups quarters* households.
 

@@ -14,7 +14,7 @@ NULL
 ### Model Parameter Estimation
 #This model has just one parameter object, a matrix of the probability that a person in each age group in a specified household type is a worker. The defined household types are the same as the types defined for the CreateHouseholds module.
 #
-#This probability matrix is created from Census public use microsample (PUMS) data that is compiled by the CreateEstimationDatasets.R script into a R dataset (HhData_df) when the VESimHouseholdsMetro package is built. The data that is supplied with the VESimHouseholdsMetro package downloaded from the official VisionEval repository may be used, but it is preferrable to use data for the region being modeled. How this is done is explained in the documentation for the *CreateEstimationDatasets.R* script.
+#This probability matrix is created from Census public use microsample (PUMS) data that is compiled by the CreateEstimationDatasets.R script into a R dataset (HhData_df) when the VESimHouseholdsSJV package is built. The data that is supplied with the VESimHouseholdsSJV package downloaded from the official VisionEval repository may be used, but it is preferrable to use data for the region being modeled. How this is done is explained in the documentation for the *CreateEstimationDatasets.R* script.
 #
 #To calculate this probability matrix, the numbers of workers by age group and household type and the numbers of persons by age group and household type are tabulated (weighted by the household weights in the PUMS data). The probability that a person is a worker is calculated by dividing the worker tabulation by the population tabulation.
 #
@@ -346,7 +346,7 @@ PredictWorkers <- function(L) {
   }
   #Iterate through age groups and Azones and identify number of workers by
   #age group for each household
-  PropHhWkr_HtAg <- loadPackageDataset("PropHhWkr_HtAg","VESimHouseholdsMetro")
+  PropHhWkr_HtAg <- loadPackageDataset("PropHhWkr_HtAg","VESimHouseholdsSJV")
   for (i in 1:length(Ag)) {
     NumWkr_Hh <- integer(NumHh)
     for (az in Az) {
