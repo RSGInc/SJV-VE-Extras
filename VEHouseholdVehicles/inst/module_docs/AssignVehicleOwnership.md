@@ -17,10 +17,6 @@ glm(formula = ZeroVeh ~ Workers + LowInc + LogIncome + IsSF +
     Drivers + IsUrbanMixNbrhd + LogDensity + TranRevMiPC, family = binomial, 
     data = EstData_df)
 
-Deviance Residuals: 
-    Min       1Q   Median       3Q      Max  
--2.7069  -0.2152  -0.0628  -0.0332   4.4914  
-
 Coefficients:
                  Estimate Std. Error z value Pr(>|z|)    
 (Intercept)      1.347976   0.766875   1.758   0.0788 .  
@@ -52,10 +48,6 @@ The non-metropolitan model for zero car ownership is shown below. The model term
 Call:
 glm(formula = ZeroVeh ~ Workers + LowInc + LogIncome + IsSF + 
     Drivers + LogDensity, family = binomial, data = EstData_df)
-
-Deviance Residuals: 
-    Min       1Q   Median       3Q      Max  
--2.7362  -0.1636  -0.0262  -0.0190   6.3244  
 
 Coefficients:
             Estimate Std. Error z value Pr(>|z|)    
@@ -206,17 +198,17 @@ ISELEMENTOF - Categorical values that are permitted. Values in the datastore are
 |AveVehPerDriver |Azone     |Year  |compound  |VEH/DRV    |NA, < 0  |                   |
 
 ## Datasets Produced by the Module
-The following table documents each dataset that is retrieved from the datastore and used by the module. Each row in the table describes a dataset. All the datasets must be present in the datastore. One or more of these datasets may be entered into the datastore from the user input files. The table names and their meanings are as follows:
+The following table documents each dataset that is placed in the datastore by the module. Each row in the table describes a dataset. All the datasets must be present in the datastore. One or more of these datasets may be entered into the datastore from the user input files. The table names and their meanings are as follows:
 
 NAME - The dataset name.
 
-TABLE - The table in the datastore that the data is retrieved from.
+TABLE - The table in the datastore that the data is placed in.
 
 GROUP - The group in the datastore where the table is located. Note that the datastore has a group named 'Global' and groups for every model run year. For example, if the model run years are 2010 and 2050, then the datastore will have a group named '2010' and a group named '2050'. If the value for 'GROUP' is 'Year', then the dataset will exist in each model run year. If the value for 'GROUP' is 'BaseYear' then the dataset will only exist in the base year group (e.g. '2010'). If the value for 'GROUP' is 'Global' then the dataset will only exist in the 'Global' group.
 
 TYPE - The data type. The framework uses the type to check units and inputs. Refer to the model system design and users guide for information on allowed types.
 
-UNITS - The units that input values need to represent. Some data types have defined units that are represented as abbreviations or combinations of abbreviations. For example 'MI/HR' means miles per hour. Many of these abbreviations are self evident, but the VisionEval model system design and users guide should be consulted.
+UNITS - The native units that are created in the datastore. Some data types have defined units that are represented as abbreviations or combinations of abbreviations. For example 'MI/HR' means miles per hour. Many of these abbreviations are self evident, but the VisionEval model system design and users guide should be consulted.
 
 PROHIBIT - Values that are prohibited. Values in the datastore do not meet any of the listed conditions.
 

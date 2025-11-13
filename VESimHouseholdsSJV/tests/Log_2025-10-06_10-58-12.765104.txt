@@ -1,0 +1,6 @@
+2025-10-06 10:58:12 [Error]: mergeParameters has invalid arguments.
+2025-10-06 10:58:12 [Error]: Keep_ls is not a list
+2025-10-06 10:58:12 [Error]: pairlist(".makeMessage(..., domain = domain)", c("stop(\"\\n\", paste(collapse = \"\\n\", writeLog(c(\"mergeParameters has invalid arguments.\", ", 
+2025-10-06 10:58:12 [Error]: "    error.reason, deparse(.traceback(5))), Level = \"error\")))"
+2025-10-06 10:58:12 [Error]: ), "mergeParameters(tableParams_ls, Param_ls)", "defaultVERunParameters(Param_ls)", "initModelState(Save = TRUE, Param_ls = NULL)", c("testModule(ModuleName = \"CreateHouseholds\", LoadDatastore = TRUE, ", 
+2025-10-06 10:58:12 [Error]: "    SaveDatastore = FALSE, DoRun = FALSE)"))

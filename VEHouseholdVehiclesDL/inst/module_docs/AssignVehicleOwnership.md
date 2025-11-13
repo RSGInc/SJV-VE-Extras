@@ -17,10 +17,6 @@ glm(formula = ZeroVeh ~ Workers + LowInc + LogIncome + IsSF +
     Drivers + IsUrbanMixNbrhd + LogDensity + TranRevMiPC, family = binomial, 
     data = EstData_df)
 
-Deviance Residuals: 
-    Min       1Q   Median       3Q      Max  
--2.7069  -0.2152  -0.0628  -0.0332   4.4914  
-
 Coefficients:
                  Estimate Std. Error z value Pr(>|z|)    
 (Intercept)      1.347976   0.766875   1.758   0.0788 .  
@@ -52,10 +48,6 @@ The non-metropolitan model for zero car ownership is shown below. The model term
 Call:
 glm(formula = ZeroVeh ~ Workers + LowInc + LogIncome + IsSF + 
     Drivers + LogDensity, family = binomial, data = EstData_df)
-
-Deviance Residuals: 
-    Min       1Q   Median       3Q      Max  
--2.7362  -0.1636  -0.0262  -0.0190   6.3244  
 
 Coefficients:
             Estimate Std. Error z value Pr(>|z|)    
