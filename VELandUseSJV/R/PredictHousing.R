@@ -673,6 +673,22 @@ ipf <- function(Seed_ar, MrgnVals_ls, MrgnDims_ls, RmseTarget = 1e-5, MaxIter = 
     list(Units_ar = Units_ar, NumIter = NumIter, MaxIter = MaxIter, RmseErr = RmseErr)
   }
 
+#' Rounding function that preserves the total
+#'
+#' \code{customround} rounds the values while preserving the total.
+#'
+#' This function rounds the values while preserving the total of the array.
+#'
+#' @param Data_ar A numeric vector.
+#' @param ... arguments to be passed to the base round function.
+#' @name customround
+customround <- function(Data_ar, ...){
+  return(diff(c(0,round(cumsum(Data_ar), ...))))
+}
+
+
+
+
 #Main module function that assigns housing type and Bzone for each household
 #---------------------------------------------------------------------------
 #' Main module function that assigns the housing type and Bzone for each
@@ -769,7 +785,7 @@ PredictHousing <- function(L) {
   #Tabulate households by house type and income quartile by Azone
   Ht <- c("SF", "MF")
   HhTab_HtIq_Az <-
-    lapply(Hh_df_Az, function(x) table(x$HouseType, x$IncQ)[Ht,Iq])
+    lapply(Hh_df_Az, function(x) table(factor(x$HouseType, levels=Ht), factor(x$IncQ, levels=Iq))[Ht,Iq])
   
   #Tabulate housing unit inputs by Bzone and housing type
   #------------------------------------------------------
@@ -851,7 +867,8 @@ PredictHousing <- function(L) {
       #Calculate matrix of unit demand by Bzone and type
       UnitDemand_BxHt <- sweep(BxPropUnits_BxHt, 2, UnitDemand_Ht, "*")
       #Convert to whole numbers
-      UnitDemand_BxHt <- round(UnitDemand_BxHt)
+      # UnitDemand_BxHt <- round(UnitDemand_BxHt)
+      UnitDemand_BxHt <- apply(UnitDemand_BxHt, 2, customround)
       UnitDiff_Ht <- UnitDemand_Ht - colSums(UnitDemand_BxHt)
       for (i in 1:2) {
         UnitDiff_By <- table(
@@ -899,7 +916,8 @@ PredictHousing <- function(L) {
       }
       rm(Seed_BxHtIq, UnitDemand_BxHt, Ipf_ls)
       #Convert allocation to whole numbers
-      Units_BxHtIq <- round(Units_BxHtIq)
+      # Units_BxHtIq <- round(Units_BxHtIq)
+      Units_BxHtIq <- aperm(apply(Units_BxHtIq, c(1,3), customround),c(2,1,3))
       Units_HtIq <- apply(Units_BxHtIq, c(2,3), sum, na.rm=TRUE)
       UnitDiff_HtIq <-  UnitDemand_HtIq - Units_HtIq
       BxPropUnits_BxHtIq <- sweep(Units_BxHtIq, c(2,3), Units_HtIq, "/")
@@ -966,7 +984,8 @@ PredictHousing <- function(L) {
           writeLog(paste("GQUnitDemand",GQUnitDemand,"but no GQUnits_Bx in Azone",az,"- adding to first Bzone"),Level="error")
           GQUnits_Bx[1] <- GQUnitDemand # Put them all in fhe first Bzone
         }
-        GQUnitDemand_Bx <- round(GQUnitDemand * GQUnits_Bx / sum(GQUnits_Bx))
+        # GQUnitDemand_Bx <- round(GQUnitDemand * GQUnits_Bx / sum(GQUnits_Bx))
+        GQUnitDemand_Bx <- customround(GQUnitDemand * GQUnits_Bx / sum(GQUnits_Bx))
         UnitDiff <- GQUnitDemand - sum(GQUnitDemand_Bx)
         UnitDiff_By <-
           table(sample(Bx, abs(UnitDiff), replace = TRUE,
