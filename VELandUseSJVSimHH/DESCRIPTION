@@ -1,0 +1,34 @@
+Package: VELandUseSJVSimHH
+Type: Package
+Title: Create Land Use Attributes for VE San Joaquin Valley
+Version: 3.1.1
+Date: 2024-01-23
+Author: Brian Gregor [aut, cre], Aditya Gore <aditya.gore@rsginc.com> [cre]
+Maintainer: Jeremy Raw <jeremy.raw@dot.gov>, Aditya Gore <aditya.gore@rsginc.com>
+Copyright: AASHTO
+Description: This package contains several modules which establish land use 
+    characteristics of Bzones including employment by type, density, diversity,
+    network design, and accessibility. Modules also identify the housing type
+    and Bzone location of each household, create a Worker table and assign each
+    worker to a Bzone job location, and identify whether each household is 
+    located in an urbanized area or rural area. In addition, modules are
+    included for processing several policy inputs related to land use that are
+    applied at the Bzone level. These include parking, travel demand management
+    programs, and car services. Edits were made to compensate for Azones in the
+	San Joaquin Valley VE model with very few multifamily dwelling units.
+License: file LICENSE
+LazyData: TRUE
+LazyDataCompression: bzip2
+Depends: R (>= 4.0.0)
+Imports:
+    visioneval,
+    geosphere,
+    fields,
+    VESimHouseholds
+Suggests:
+    knitr,
+    VE2001NHTS
+Encoding: UTF-8
+VignetteBuilder: knitr
+Roxygen: list(load='source')
+RoxygenNote: 7.3.3
