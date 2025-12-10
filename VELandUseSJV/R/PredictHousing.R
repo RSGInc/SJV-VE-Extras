@@ -917,7 +917,7 @@ PredictHousing <- function(L) {
       rm(Seed_BxHtIq, UnitDemand_BxHt, Ipf_ls)
       #Convert allocation to whole numbers
       # Units_BxHtIq <- round(Units_BxHtIq)
-      Units_BxHtIq <- aperm(apply(Units_BxHtIq, c(1,3), customround),c(2,1,3))
+      Units_BxHtIq <- aperm(apply(Units_BxHtIq, c(3,2), customround),c(1,3,2))
       Units_HtIq <- apply(Units_BxHtIq, c(2,3), sum, na.rm=TRUE)
       UnitDiff_HtIq <-  UnitDemand_HtIq - Units_HtIq
       BxPropUnits_BxHtIq <- sweep(Units_BxHtIq, c(2,3), Units_HtIq, "/")
