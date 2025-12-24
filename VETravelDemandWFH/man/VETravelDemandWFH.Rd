@@ -2,6 +2,7 @@
 % Please edit documentation in R/VETravelDemandWFH.R
 \docType{package}
 \name{VETravelDemandWFH}
+\alias{VETravelDemandWFH-package}
 \alias{VETravelDemandWFH}
 \title{\code{VETravelDemandWFH} package}
 \description{
@@ -10,4 +11,20 @@ Simulate Multi-Modal Travel Demand for Households with Adjustments for Working f
 \details{
 See the README on
 \href{https://github.com/gregorbj/VisionEval/sources/modules/VETravelDemandWFH}{GitHub}
+}
+\seealso{
+Useful links:
+\itemize{
+  \item \url{https://github.com/cities-lab/VETravelDemandWFH}
+}
+
+}
+\author{
+\strong{Maintainer}: Liming Wang \email{lmwang@pdx.edu}
+
+Other contributors:
+\itemize{
+  \item Colin Smith \email{colin.smith@rsginc.com} [contributor]
+}
+
 }
