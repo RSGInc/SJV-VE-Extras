@@ -23,7 +23,8 @@ SET "App[7]=VEPowertrainsAndFuelsSJV"
 SET "App[8]=VESimLandUseDL"
 SET "App[9]=VETravelDemandWFH"
 SET "App[10]=VETravelPerformanceDL"
-SET "App[11]=All Modules"
+SET "App[11]=VELandUseSJVSimHH"
+SET "App[12]=All Modules"
 
 :: Display Menu
 SET "Message="
