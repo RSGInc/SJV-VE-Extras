@@ -1,0 +1,11 @@
+# Next Generation model with updated framework and export function
+# reproduces "base" VERSPM from VEModel, but provides alternate run script
+# to exercise the MultiModal features.
+VERSPM:
+  variants:
+    base:
+      description: VERSPM 3.1 with Work From Home Module, Driverless, and AP2022 Powertrain
+      config: visioneval-ref.cnf
+      scripts: scripts-ref
+      inputs: inputs-ref
+      defs: defs
