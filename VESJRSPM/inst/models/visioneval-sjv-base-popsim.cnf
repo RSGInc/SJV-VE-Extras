@@ -1,0 +1,26 @@
+Notes:
+- VisionEval.cnf for VERSPM (single stage)
+- Model Structural Parameters: ScriptsDir, InputDir, ParamDir, GeoFile, ModelParamFile
+- Model Description: VERSPM Valley Model for the San Joaquin Valley Region
+- Scenario Description (single stage): Reference, Reference input-level, 2022, 2022 & 2046 model years
+
+# Model Structural Parameters
+ScriptsDir     : scripts
+InputDir       : inputs
+ParamDir       : defs
+GeoFile        : geo.csv
+ModelParamFile : model_parameters.json # Located in InputDir
+
+# Model description
+Model          : VERSPM 3.0
+Region         : San Joaquin Valley
+State          : CA
+
+# Scenario description (using default or runtime Seed parameter)
+Scenario       : VERSPM SJV
+Description    : Base Year 2022 + Future 2046
+BaseYear       : 2022
+Years          : [ 2022, 2046 ]
+
+# Dynamic configuration
+VEPopulationSimDir   : VEPopulationSimInputs

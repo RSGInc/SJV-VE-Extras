@@ -1,0 +1,23 @@
+# Next Generation model with updated framework and export function
+# reproduces "base" VERSPM from VEModel, but provides alternate run script
+# to exercise the MultiModal features.
+VERSPM:
+  variants:
+    SJV-base:
+      description: VERSPM 3.1 with Work From Home Module, Driverless, SJV Sim Households, and SJV Powertrain
+      config: visioneval-sjv-base.cnf
+      scripts: scripts-sjv-base
+      inputs: inputs-sjv-base
+      defs: defs
+    SJV-base-popsim:
+      description: VERSPM 3.1 with Work From Home Module, Driverless, SJV Population Sim, and SJV Powertrain
+      config: visioneval-sjv-base-popsim.cnf
+      scripts: scripts-sjv-base-popsim
+      inputs: inputs-sjv-base-popsim
+      defs: defs
+    SJV-cat:
+      description: VERSPM 3.1 categorical scenarios with Work From Home Module, Driverless, SJV Population Sim, and SJV Powertrain
+      config: visioneval-sjv-cat.cnf
+      scripts: scripts-sjv-cat
+      inputs: inputs-sjv-cat
+      defs: defs

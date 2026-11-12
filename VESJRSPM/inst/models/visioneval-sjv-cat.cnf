@@ -1,0 +1,44 @@
+Notes:
+- VisionEval.cnf for VERSPM with "horizontal" population synthesis stage (and "vertical" years)
+- Model Structural Parameters: ScriptsDir, InputDir, ParamDir, Seed
+- Model Description: Model, Region, State, ModelStages
+- See individual ModelStages for scenario descriptions
+
+# Model Structural Parameters
+ScriptsDir  : scripts
+InputDir    : inputs # model_parameters.json is located here
+    # Full set of model inputs is included in model base directory
+    # InputPath in stages will look there first
+    # Stages include just the minimal input data they need to run
+ParamDir    : defs # default parameter location
+Seed        : 1  # Same seed used for all scenarios
+
+# Model description
+Model       : VERSPM 3.0 ("Horizontal" stages)
+Region      : SJV
+State       : CA
+
+# Scenario description
+ModelScript    : run_model.R
+Scenario       : VERSPM San Joaquin Valley MultiModal, Custom Powertrain, with telework
+Description    : SJV VisionEval Model Reference inputs
+BaseYear       : 2022
+Years          : [ 2022, 2046 ]
+
+ModelStages:
+    "stage-2022":
+      Reportable  : true
+      Scenario    : VERSPM San Joaquin Valley MultiModal, Custom Powertrain, with telework
+      Description : Base Year Scenario (2022)
+      BaseYear    : 2022
+      Years       : [ 2022 ]
+    "stage-2046":
+      Reportable  : true
+      StartFrom   : stage-2022
+      Scenario    : VERSPM San Joaquin Valley MultiModal, Custom Powertrain, with telework
+      Description : Future Year Scenario (2046)
+      BaseYear    : 2022
+      Years       : [ 2046 ]
+
+# Dynamic configuration
+VEPopulationSimDir   : VEPopulationSimInputs

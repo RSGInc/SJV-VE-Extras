@@ -1,0 +1,174 @@
+StartFrom   : "stage-2022"     # StartFrom stage for ModelStages (adjust for your model)
+BaseScenario: "stage-2046"     # Stage providing InputPath (optional: if not present use StartFrom)
+
+ScenarioElements:
+  - Name: L
+    ScenarioRoot: L       # If ScenarioRoot not provided, use scenario Name
+    Label: "Land use"
+    Description: "Changes in future land use patterns."
+    Files:
+      - bzone_dwelling_units.csv
+    Levels:
+      - Name: 1
+        LevelDir: 1       # If LevelDir not provided use level Name 
+        Label: "TOD"
+        Description: "Double growth in TOD areas."
+      - Name: 2
+        LevelDir: 2       # If LevelDir not provided use level Name 
+        Label: "Compact growth"
+        Description: "All growth concentrated in developed or urbanized areas"
+      - Name: 3
+        LevelDir: 3       # If LevelDir not provided use level Name 
+        Label: "Job and Housing balance"
+        Description: "Job to housing ratio is 1 for each Azone"
+  - Name: D
+    ScenarioRoot: D       # If ScenarioRoot not provided, use scenario Name
+    Label: "Demand Management"
+    Description: "Programs to encourage less private vehicle travel."
+    Files:
+      - bzone_parking.csv
+    Levels:
+      - Name: 1
+        LevelDir: 1
+        Label: "Increase parking cost"
+        Description: "Added a $2 daily parking cost to all zones within 2020 Census designated urban areas that did not have existing costs."
+  - Name: F
+    ScenarioRoot: F       # If ScenarioRoot not provided, use scenario Name
+    Label: "Fees"
+    Description: "Fees affecting travel costs."
+    Files:
+      - marea_congestion_charges.csv
+      - azone_veh_use_taxes.csv
+    Levels:
+      - Name: 1
+        LevelDir: 1
+        Label: "Congestion charges"
+        Description: "Add 50 cent per mile congestion charges during severe and extreme periods of congestion in 2046."
+      - Name: 2
+        LevelDir: 2
+        Label: "Congestion charges and VMT charges"
+        Description: "Add 50 cent per mile congestion charges during severe and extreme periods of congestion and 2.5 cent per mile VMT tax in 2046."
+  - Name: T
+    ScenarioRoot: T       # If ScenarioRoot not provided, use scenario Name
+    Label: "Transportation infrastructure"
+    Description: "Level of transit infrastructure available."
+    Files:
+      - marea_transit_service.csv
+      - bzone_transit_service.csv
+      - marea_lane_miles.csv
+    Levels:
+      - Name: 1
+        LevelDir: 1
+        Label: "Bus and demand response service"
+        Description: "Double public transit service level for bus and demand response services."
+      - Name: 2
+        LevelDir: 2
+        Label: "Bike / pedestrian facilities"
+        Description: "50% increase in bike and pedestrian facilities."
+      - Name: 3
+        LevelDir: 3
+        Label: "Arterial lane miles"
+        Description: "50% increase in arterial lane miles."
+  - Name: P
+    ScenarioRoot: P
+    Label: "Population"
+    Description: "Changes in Population Sim."
+    Files:
+      - VEPopulationSimInputs
+    Levels:
+      - Name: 1
+        LevelDir: 1
+        Label: "DOF 2023 release with fixed household sizes, base land use"
+        Description: "Maintain household sizes and replace the 2022 RTP population with 2023 DOF forecast, compatible with base land use."
+      - Name: 2
+        LevelDir: 2
+        Label: "Employment growth"
+        Description: "20% employment increase"
+      - Name: 3
+        LevelDir: 3
+        Label: "DOF 2023 release"
+        Description: "DOF 2023 population forecast with no fixed household sizes."
+      - Name: 4
+        LevelDir: 4
+        Label: "DOF 2023 release with fixed household sizes, level 1 land use"
+        Description: "Maintain household sizes and replace the 2022 RTP population with 2023 DOF forecast, compatible with level 1 land use."
+      - Name: 5
+        LevelDir: 5
+        Label: "DOF 2023 release with fixed household sizes, level 2 land use"
+        Description: "Maintain household sizes and replace the 2022 RTP population with 2023 DOF forecast, compatible with level 2 land use."
+      - Name: 6
+        LevelDir: 6
+        Label: "DOF 2023 release with fixed household sizes, level 3 land use"
+        Description: "Maintain household sizes and replace the 2022 RTP population with 2023 DOF forecast, compatible with level 3 land use."
+
+ScenarioCategories:
+#  StartFrom: "stage-2046" # or could just leave it out since it's the same as overall
+  Category:
+    - Name: "PLU"
+      Description: "Changes in population and land use combinations."
+      Levels: 
+        - Name: 1
+          Inputs: 
+            - Name: P
+              Level: 1
+        - Name: 2
+          Inputs: 
+            - Name: P
+              Level: 2
+        - Name: 3
+          Inputs: 
+            - Name: L
+              Level: 1
+            - Name: P
+              Level: 4
+        - Name: 4
+          Inputs: 
+            - Name: L
+              Level: 2
+            - Name: P
+              Level: 5
+        - Name: 5
+          Inputs: 
+            - Name: L
+              Level: 3
+            - Name: P
+              Level: 6
+        - Name: 6
+          Inputs: 
+            - Name: L
+              Level: 0
+            - Name: P
+              Level: 3
+    - Name: "Fees"
+      Description: "Changes in fees and costs that affect household vehicle travel cost."
+      Levels: 
+        - Name: 1
+          Inputs: 
+            - Name: F
+              Level: 1
+        - Name: 2
+          Inputs: 
+            - Name: F
+              Level: 2
+    - Name: "TDM"
+      Description: "Changes in parking costs."
+      Levels: 
+        - Name: 1
+          Inputs: 
+            - Name: D
+              Level: 1
+    - Name: "TI"
+      Description: "Changes in transportation infrastructure that affects household travel."
+      Levels: 
+        - Name: 1
+          Inputs: 
+            - Name: T
+              Level: 1
+        - Name: 2
+          Inputs: 
+            - Name: T
+              Level: 2
+        - Name: 3
+          Inputs: 
+            - Name: T
+              Level: 3

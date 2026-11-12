@@ -1,0 +1,3 @@
+﻿NAME,TABLE,GROUP,TYPE,UNITS,NAVALUE,PROHIBIT,ISELEMENTOF,DESCRIPTION
+PINCADJ,Person,Year,currency,USD,-1,"c(""NA"", ""< 0"")",,Total annual personal income
+HTYPE,Household,Year,integer,category,-1,"c(""NA"", ""<-1"")",,Household type

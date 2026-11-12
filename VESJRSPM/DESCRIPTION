@@ -1,0 +1,18 @@
+Package: VELCOGRSPM
+Type: Package
+Title: San Joaquin VE Regional Models
+Version: 1.0
+Date: 2025-10-01
+Authors@R: c(person("Nick", "Fischer", role=c("ctb"), email="nicholas.fischer@rsginc.com"), person("Jonathan", "Slason", role=c("aut", "cre"), email="jonathan.slason@rsginc.com"))
+Maintainer: RSG  <jonathan.slason@rsginc.com>
+Copyright: 2025, RSG Inc.
+URL: http://www.rsginc.com
+Description: This package contains the model variants and all inputs for the San Joaquin VisionEval models.
+License: file LICENSE
+LazyData: TRUE
+Encoding: UTF-8
+Depends: R (>= 3.6.0)
+VignetteBuilder: knitr
+Roxygen: list(load="source")
+RoxygenNote: 7.3.1
+Remotes:

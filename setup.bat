@@ -24,7 +24,8 @@ SET "App[8]=VESimLandUseDL"
 SET "App[9]=VETravelDemandWFH"
 SET "App[10]=VETravelPerformanceDL"
 SET "App[11]=VELandUseSJVSimHH"
-SET "App[12]=All Modules"
+SET "App[12]=VESJRSPM"
+SET "App[13]=All Modules"
 
 :: Display Menu
 SET "Message="
@@ -94,8 +95,9 @@ IF "%App%" EQU "VEPowertrainsAndFuelsSJV" ECHO Installing %App% && CALL "%WHICH_
 IF "%App%" EQU "VESimLandUseDL" ECHO Installing %App% && CALL "%WHICH_R%\bin\R.exe" CMD INSTALL -l "%VE_LIB%" "%~dp0\%App%"
 IF "%App%" EQU "VETravelDemandWFH" ECHO Installing %App% && CALL "%WHICH_R%\bin\R.exe" CMD INSTALL -l "%VE_LIB%" "%~dp0\%App%"
 IF "%App%" EQU "VETravelPerformanceDL" ECHO Installing %App% && CALL "%WHICH_R%\bin\R.exe" CMD INSTALL -l "%VE_LIB%" "%~dp0\%App%"
+IF "%App%" EQU "VESJRSPM" ECHO Installing %App% && CALL "%WHICH_R%\bin\R.exe" CMD INSTALL -l "%VE_LIB%" "%~dp0\%App%"
 IF "%App%" EQU "All Modules" (
-CALL :Process 1 2 3 4 5 6 7 8 9 10
+CALL :Process 1 2 3 4 5 6 7 8 9 10 11 12
 )
 
 :: Prevent the command from being processed twice if listed twice.
